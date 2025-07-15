@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mochila Virtual</title>
+    <style>
+       /* Tema Claro */
+        body {
+            background-image: url(https://i.pinimg.com/originals/09/01/43/0901434384290893f3f67b1065855d60.gif);
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            transition: background-image 0.3s, color 0.3s;
+            background-size:cover;
+            background-attachment: fixed;
+        }
+        .titulo-box{
+            color: #ffffff;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: rgba(199, 126, 42, 0.349);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
+        .materia {
+            margin-bottom: 10px;
+        }
+        .titulo {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #9e8a5198;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            transition: transform 0.2s ease-in-out, background-color 0.3s;
+        }
+        .titulo:hover {
+            transform: scale(1.05);
+        }
+        h2 {
+            margin: 0;
+        }
+        .botao {
+            background-color: transparent;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .botao-tema {
+            padding: 10px;
+            margin: 5px;
+            background-color: #22222200;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .botao-tema-escuro {
+            background-color: #50494900;
+        }
+
+        /* Tema Escuro */
+        .dark-mode {
+           background-image: url(https://i.pinimg.com/originals/fe/e9/55/fee955a4c443424dd55cf8239698291f.gif); /* Modo Escuro */
+            color: white;
+            background-attachment: fixed;
+        }
+        .dark-mode .container {
+            background: #3415a53a;
+        }
+        .dark-mode .titulo {
+            background-color: #555555e0;
+        }
+        .dark-mode .conteudo {
+            background-color: #44444488;
+            color: white;
+        }
+        .dark-mode .botao {
+            color: white;
+        }
+
+        .conteudo {
+            padding: 10px;
+            background: #ddddddc2;
+            border-radius: 5px;
+            display: none;
+            transition: transform 0.2s ease-in-out, background-color 0.3s;
+            color: rgb(0, 0, 0);
+        }
+        .conteudo:hover {
+            transform: scale(1.02);
+        }
+        
+        .conteudo.ativo {
+        display: block;
+    }
+/* Tema Galáxia */
+        .galaxy-mode {
+            background-image: url(https://i.pinimg.com/originals/aa/95/5e/aa955e4d89e68f427e2eb868f88de189.gif);
+            background-attachment: fixed;
+        }
+        .galaxy-mode .container {
+            background: rgba(19, 1, 36, 0.61);
+        }
+        .galaxy-mode .titulo {
+            background-color: rgba(90, 40, 160, 0.623);
+        }
+        .galaxy-mode .conteudo {
+            background-color: rgba(51, 20, 100, 0.603);
+            color: white;
+        }
+       
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <button class="botao-tema" onclick="modoClaro()">☀️</button>
+    <button class="botao-tema botao-tema-escuro" onclick="modoEscuro()">🌑</button>
+    <button class="botao-tema" onclick="modoGalaxia()">🌀</button>
+
+    <h1 class="titulo-box">Mochila Virtual</h1>
+
+    <div class="materia">
+        <div class="titulo" onclick="toggleConteudo(this)">
+            <h2>POO-JAVA</h2>
+        </div>
+        <div class="conteudo">
+            <p>Nada aqui...</p>
+        </div>
+    </div>
+
+    <div class="materia">
+        <div class="titulo" onclick="toggleConteudo(this)">
+            <h2>AMC</h2>
+        </div>
+        <div class="conteudo">
+        </div>
+    </div>
+
+    <div class="materia">
+        <div class="titulo" onclick="toggleConteudo(this)">
+            <h2>HTML and CSS</h2>
+        </div>
+        <div class="conteudo">
+        </div>
+    </div>
+
+    <div class="materia">
+        <div class="titulo" onclick="toggleConteudo(this)">
+            <h2>S.O</h2>
+        </div>
+        <div class="conteudo">
+            <p>Nada aqui...</p>
+        </div>
+    </div>
+
+    <div class="materia">
+        <div class="titulo" onclick="toggleConteudo(this)">
+            <h2>LOGPR</h2>
+        </div>
+        <div class="conteudo">
+            <p>Nada aqui...</p>
+        </div>
+    </div>
+    <div class="materia">
+        <div class="titulo"class="titulo" onclick="toggleConteudo(this)">
+            <h2>NR - Noção de Robótica</h2>
+        </div>
+        <div class="conteudo">
+        </div>
+    </div>
+ <div class="materia">
+        <div class="titulo"class="titulo" onclick="toggleConteudo(this)">
+            <h2>PROWEB</h2>
+        </div>
+        <div class="conteudo">
+            <h3><strong>Aula 2 => 14/07/2025</strong></h3> 
+            <h4>PHP</h4>
+            <li><strong>O que é PHP ?</strong></li>
+            <p>PHP:<strong>(Hypertext Preprocessor)</strong> é uma linguagem de script de código aberto amplamente utilizada, especialmente para o desenvolvimento web. É uma linguagem do lado do servidor, o que significa que o código é processado no servidor antes de ser enviado para o navegador do usuário.</p>
+  <li><strong>Para que o PHP serve ?</strong></li>
+  <p>Geralmente usado para criar paginas dinamicas que mudam de acordo com as ações do usuario no site. Ele é bastante usado em páginas famosas como o Facebook ou e WordPress.</p>
+
+            <h4>JavaScript</h4>
+            <li><strong>O que é JavaScript ?</strong></li>
+            <p>é uma linguagem de programação de alto nível, dinâmica e interpretada, amplamente utilizada no desenvolvimento web para adicionar interatividade e dinamismo às páginas. É essencial para criar elementos como menus suspensos, animações, formulários interativos e atualizações em tempo real em sites.</p>
+            <li><strong>Para que o JavaScript serve ?</strong></li>
+            <p>adicionar interatividade a páginas web, permitindo que elas reajam às ações do usuário, como cliques, entradas de texto e movimentos do mouse. Além disso permite que o conteúdo de uma página seja atualizado sem a necessidade de recarregá-la, tornando a experiência do usuário mais fluida e eficiente. </p>
+
+            <h4>MYSQL</h4> 
+            <li><strong>O que é MYSQL ?</strong></li>
+            <p>é um sistema de gerenciamento de banco de dados relacional (SGBDR) de código aberto, amplamente utilizado para armazenar e gerenciar dados em diversas aplicações, incluindo sites, aplicativos e sistemas empresariais. Ele utiliza a linguagem SQL <strong>(Structured Query Language)</strong> para manipular e consultar os dados armazenados</p>
+            <li><strong>Para que o MySQL serve ?</strong></li>
+            <p>usado para organizar informações em tabelas (produtos, clientes, pedidos) e adicionar outras tabelas conforme necessário.</p>
+
+        <h3><strong>Aula 3:</strong></h3> <h3></h3>
+
+        <h3><strong>Aula 4:</strong></h3> <h3></h3>
+
+        <h3><strong>Aula 5:</strong></h3> <h3></h3>
+
+        <h3><strong>Aula 6:</strong></h3> <h3></h3>
+
+        <h3><strong>Aula 7:</strong></h3> <h3></h3>
+
+        <h3><strong>Aula 8:</strong></h3> <h3></h3>
+
+        <h3><strong>Aula 9:</strong></h3> <h3></h3>
+
+        <h3><strong>Aula 10:</strong></h3> <h3></h3>
+
+
+        </div>
+    </div>
+    <div class="materia">
+        <div class="titulo"class="titulo" onclick="toggleConteudo(this)">
+            <h2>GT</h2>
+        </div>
+        <div class="conteudo">
+           <div class="materia">
+</div>
+
+<script>
+    function modoClaro() {
+        document.body.classList.remove("dark-mode", "galaxy-mode");
+    }
+
+    function modoEscuro() {
+        document.body.classList.remove("galaxy-mode");
+        document.body.classList.add("dark-mode");
+    }
+
+    function modoGalaxia() {
+        document.body.classList.remove("dark-mode");
+        document.body.classList.add("galaxy-mode");
+    }
+
+  function toggleConteudo(titulo) {
+        let conteudo = titulo.nextElementSibling;
+        
+        // Se o conteúdo já estiver aberto, fecha ele
+        if (conteudo.classList.contains("ativo")) {
+            conteudo.classList.remove("ativo");
+        } else {
+            // Fecha todos os outros conteúdos antes de abrir o novo
+            let todosConteudos = document.querySelectorAll(".conteudo");
+            todosConteudos.forEach(c => c.classList.remove("ativo"));
+            
+            // Abre o conteúdo clicado
+            conteudo.classList.add("ativo");
+        }
+  }
+</script>
+</body>
+</html>
